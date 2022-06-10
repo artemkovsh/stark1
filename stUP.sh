@@ -9,12 +9,9 @@ echo " ██║░╚═╝░██║██║░░██║██║░░�
 echo " ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░╚════╝░  ╚═╝░░╚══╝░╚════╝░╚═════╝░╚══════╝╚═════╝░ ";
 echo -e "\e[0m"
 echo "=================================================="
-sleep 2
 cd ~/pathfinder/py
 git fetch &>/dev/null
 git checkout v0.2.1-alpha &>/dev/null
-echo "Начинаем билд"
-echo "-----------------------------------------------------------------------------"
 python3 -m venv .venv &>/dev/null
 source .venv/bin/activate &>/dev/null
 PIP_REQUIRE_VIRTUALENV=true pip install --upgrade pip &>/dev/null
@@ -22,8 +19,6 @@ PIP_REQUIRE_VIRTUALENV=true pip install -r requirements-dev.txt &>/dev/null
 cargo build --release --bin pathfinder &>/dev/null
 sleep 2
 source $HOME/.bash_profile &>/dev/null
-echo "Билд завершен"
-echo "-----------------------------------------------------------------------------"
 systemctl restart starknet
 echo "Нода обновлена"
 echo "-----------------------------------------------------------------------------"
